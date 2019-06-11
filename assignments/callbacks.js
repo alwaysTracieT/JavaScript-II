@@ -2,49 +2,77 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
-/* 
 
-  //Given this problem: 
+
+  // //Given this problem: 
   
-  function firstItem(arr, cb) {
-    // firstItem passes the first item of the given array to the callback function.
-  }
+  // function firstItem(arr, cb) {
+  //   // firstItem passes the first item of the given array to the callback function.
+  // }
 
-  // Potential Solution:
+  // // Potential Solution:
 
-  // Higher order function using "cb" as the call back
-  function firstItem(arr, cb) {
-    return cb(arr[0]);
-  }
+  // // Higher order function using "cb" as the call back
+  // function firstItem(arr, cb) {
+  //   return cb(arr[0]);
+  // }
 
-  // Function invocation 
-  firstItem(items, function(first) {
-    console.log(first)
-  });
+  // // Function invocation 
+  // firstItem(items, function(first) {
+  //   console.log(first)
+  // });
 
-*/
-
-
+//Challenge 1: DONE
+// getLength passes the length of the array into the callback.
 function getLength(arr, cb) {
-  // getLength passes the length of the array into the callback.
-}
+  return cb(arr.length);
+};
+getLength(items, function(length) {
+  console.log(`There are ${length} items in the array.`);
+});
 
-function last(arr, cb) {
-  // last passes the last item of the array into the callback.
-}
 
+//Challenge 2: DONE
+// last passes the last item of the array into the callback.
+function lastItem(arr, cb) {
+  return cb(arr[arr.length-1]);
+};
+lastItem(items, function(last){
+  console.log(`The last item in the array is ${last}.`);
+});
+
+//Challenge 3: DONE
+// sumNums adds two numbers (x, y) and passes the result to the callback.
 function sumNums(x, y, cb) {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
-}
+  return cb(x, y);
+};
+const sum = function(x, y) {
+  return x + y;
+};
+console.log(sumNums(4,5, sum)); 
 
+//Challenge 4: DONE
+// multiplyNums multiplies two numbers and passes the result to the callback.
 function multiplyNums(x, y, cb) {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
-}
+  return cb(x, y);
+};
+const multiply = function(x, y) {
+  return x * y;
+};
+console.log(multiplyNums(4,5, multiply));
+
+
+//Challenge 5: DONE
+// contains checks if an item is present inside of the given array/list.
+// Pass true to the callback if it is, otherwise pass false.
 
 function contains(item, list, cb) {
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
-}
+  if (list.includes(item)) {
+    return cb(true);
+  } else {
+    return cb(false);
+  };
+};
 
 /* STRETCH PROBLEM */
 
